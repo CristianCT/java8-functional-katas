@@ -1,8 +1,6 @@
 package katas;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import model.BoxArt;
 import model.MovieList;
 import util.DataUtil;
 
@@ -21,7 +19,11 @@ public class Kata4 {
 
         return movieLists.stream().flatMap(movieList ->
                 movieList.getVideos().stream().map(movie ->
-                    ImmutableMap.of("id", movie.getId(), "title", movie.getTitle(), "boxart", new BoxArt(150, 200, "url"))
+                    ImmutableMap.of(
+                            "id", movie.getId(),
+                            "title", movie.getTitle(),
+                            "boxart", movie.getBoxarts().stream().filter(boxArt -> boxArt.getWidth() == 150)
+                    )
                 )
         ).collect(Collectors.toList());
     }

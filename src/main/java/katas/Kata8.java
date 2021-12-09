@@ -21,7 +21,7 @@ public class Kata8 {
         List<Movie> movies = DataUtil.getMovies();
         List<Bookmark> bookMarks = DataUtil.getBookMarks();
 
-        // StreamUtils.zip()
+        // StreamUtils.zip();
 
         return ImmutableList.of(ImmutableMap.of("videoId", 5, "bookmarkId", 3));
     }
